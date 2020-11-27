@@ -98,8 +98,8 @@ City& City::operator=(const City &rhs) {
  */
 bool City::operator==(const City &rhs) const {
     double tolerance {0.001};
-    return  (this->get_x() - rhs.get_x() < tolerance) &&
-            (this->get_y() - rhs.get_y() < tolerance);
+    return  (abs(this->get_x() - rhs.get_x()) < tolerance) &&
+            (abs(this->get_y() - rhs.get_y())< tolerance);
 }
 
 /**
