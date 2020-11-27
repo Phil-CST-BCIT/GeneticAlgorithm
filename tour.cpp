@@ -74,10 +74,11 @@ double Tour::get_tour_distance() {
     if(this->get_list().empty())
         return 0;
 
-    for(int i = 0; i < this->get_list().size(); ++i){
+    for(int i = 0; i < this->get_list().size() && i + 1 < this->get_list().size(); ++i){
         this->fitness_rating += *(this->city_list.at(i)) + *(this->city_list.at(i+1));
     }
 
+    cout << fitness_rating << endl;
     return this->fitness_rating;
 }
 
