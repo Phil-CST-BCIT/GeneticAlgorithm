@@ -94,13 +94,12 @@ City& City::operator=(const City &rhs) {
 /**
  * overload equality operator
  * @param rhs: the city object on the right hand side
- * @return: true if two cities have the same name, x and y value
+ * @return: true if two cities have the same x and y value
  */
 bool City::operator==(const City &rhs) const {
     double tolerance {0.001};
     return  (this->get_x() - rhs.get_x() < tolerance) &&
-            (this->get_y() - rhs.get_y() < tolerance) &&
-            (this->get_name() == rhs.get_name());
+            (this->get_y() - rhs.get_y() < tolerance);
 }
 
 /**
