@@ -80,7 +80,28 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/phil/CLionProjects/GeneticAlgorithm/catch_amalgamated.cpp">
+			<Option target="GeneticAlgorithm"/>
+		</Unit>
+		<Unit filename="/Users/phil/CLionProjects/GeneticAlgorithm/catch_amalgamated.hpp">
+			<Option target="GeneticAlgorithm"/>
+		</Unit>
+		<Unit filename="/Users/phil/CLionProjects/GeneticAlgorithm/city.cpp">
+			<Option target="GeneticAlgorithm"/>
+		</Unit>
+		<Unit filename="/Users/phil/CLionProjects/GeneticAlgorithm/city.hpp">
+			<Option target="GeneticAlgorithm"/>
+		</Unit>
 		<Unit filename="/Users/phil/CLionProjects/GeneticAlgorithm/main.cpp">
+			<Option target="GeneticAlgorithm"/>
+		</Unit>
+		<Unit filename="/Users/phil/CLionProjects/GeneticAlgorithm/tour.cpp">
+			<Option target="GeneticAlgorithm"/>
+		</Unit>
+		<Unit filename="/Users/phil/CLionProjects/GeneticAlgorithm/tour.hpp">
+			<Option target="GeneticAlgorithm"/>
+		</Unit>
+		<Unit filename="/Users/phil/CLionProjects/GeneticAlgorithm/unit_test.cpp">
 			<Option target="GeneticAlgorithm"/>
 		</Unit>
 		<Unit filename="/Users/phil/CLionProjects/GeneticAlgorithm/CMakeLists.txt">

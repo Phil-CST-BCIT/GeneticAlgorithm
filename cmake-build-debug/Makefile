@@ -143,6 +143,60 @@ GeneticAlgorithm/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/GeneticAlgorithm.dir/build.make CMakeFiles/GeneticAlgorithm.dir/build
 .PHONY : GeneticAlgorithm/fast
 
+catch_amalgamated.o: catch_amalgamated.cpp.o
+
+.PHONY : catch_amalgamated.o
+
+# target to build an object file
+catch_amalgamated.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GeneticAlgorithm.dir/build.make CMakeFiles/GeneticAlgorithm.dir/catch_amalgamated.cpp.o
+.PHONY : catch_amalgamated.cpp.o
+
+catch_amalgamated.i: catch_amalgamated.cpp.i
+
+.PHONY : catch_amalgamated.i
+
+# target to preprocess a source file
+catch_amalgamated.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GeneticAlgorithm.dir/build.make CMakeFiles/GeneticAlgorithm.dir/catch_amalgamated.cpp.i
+.PHONY : catch_amalgamated.cpp.i
+
+catch_amalgamated.s: catch_amalgamated.cpp.s
+
+.PHONY : catch_amalgamated.s
+
+# target to generate assembly for a file
+catch_amalgamated.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GeneticAlgorithm.dir/build.make CMakeFiles/GeneticAlgorithm.dir/catch_amalgamated.cpp.s
+.PHONY : catch_amalgamated.cpp.s
+
+city.o: city.cpp.o
+
+.PHONY : city.o
+
+# target to build an object file
+city.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GeneticAlgorithm.dir/build.make CMakeFiles/GeneticAlgorithm.dir/city.cpp.o
+.PHONY : city.cpp.o
+
+city.i: city.cpp.i
+
+.PHONY : city.i
+
+# target to preprocess a source file
+city.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GeneticAlgorithm.dir/build.make CMakeFiles/GeneticAlgorithm.dir/city.cpp.i
+.PHONY : city.cpp.i
+
+city.s: city.cpp.s
+
+.PHONY : city.s
+
+# target to generate assembly for a file
+city.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GeneticAlgorithm.dir/build.make CMakeFiles/GeneticAlgorithm.dir/city.cpp.s
+.PHONY : city.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -170,6 +224,60 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/GeneticAlgorithm.dir/build.make CMakeFiles/GeneticAlgorithm.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+tour.o: tour.cpp.o
+
+.PHONY : tour.o
+
+# target to build an object file
+tour.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GeneticAlgorithm.dir/build.make CMakeFiles/GeneticAlgorithm.dir/tour.cpp.o
+.PHONY : tour.cpp.o
+
+tour.i: tour.cpp.i
+
+.PHONY : tour.i
+
+# target to preprocess a source file
+tour.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GeneticAlgorithm.dir/build.make CMakeFiles/GeneticAlgorithm.dir/tour.cpp.i
+.PHONY : tour.cpp.i
+
+tour.s: tour.cpp.s
+
+.PHONY : tour.s
+
+# target to generate assembly for a file
+tour.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GeneticAlgorithm.dir/build.make CMakeFiles/GeneticAlgorithm.dir/tour.cpp.s
+.PHONY : tour.cpp.s
+
+unit_test.o: unit_test.cpp.o
+
+.PHONY : unit_test.o
+
+# target to build an object file
+unit_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GeneticAlgorithm.dir/build.make CMakeFiles/GeneticAlgorithm.dir/unit_test.cpp.o
+.PHONY : unit_test.cpp.o
+
+unit_test.i: unit_test.cpp.i
+
+.PHONY : unit_test.i
+
+# target to preprocess a source file
+unit_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GeneticAlgorithm.dir/build.make CMakeFiles/GeneticAlgorithm.dir/unit_test.cpp.i
+.PHONY : unit_test.cpp.i
+
+unit_test.s: unit_test.cpp.s
+
+.PHONY : unit_test.s
+
+# target to generate assembly for a file
+unit_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GeneticAlgorithm.dir/build.make CMakeFiles/GeneticAlgorithm.dir/unit_test.cpp.s
+.PHONY : unit_test.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -179,9 +287,21 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... GeneticAlgorithm"
+	@echo "... catch_amalgamated.o"
+	@echo "... catch_amalgamated.i"
+	@echo "... catch_amalgamated.s"
+	@echo "... city.o"
+	@echo "... city.i"
+	@echo "... city.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... tour.o"
+	@echo "... tour.i"
+	@echo "... tour.s"
+	@echo "... unit_test.o"
+	@echo "... unit_test.i"
+	@echo "... unit_test.s"
 .PHONY : help
 
 

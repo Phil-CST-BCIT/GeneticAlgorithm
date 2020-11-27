@@ -1,5 +1,9 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/GeneticAlgorithm.dir/catch_amalgamated.cpp.o"
+  "CMakeFiles/GeneticAlgorithm.dir/city.cpp.o"
   "CMakeFiles/GeneticAlgorithm.dir/main.cpp.o"
+  "CMakeFiles/GeneticAlgorithm.dir/tour.cpp.o"
+  "CMakeFiles/GeneticAlgorithm.dir/unit_test.cpp.o"
   "GeneticAlgorithm"
   "GeneticAlgorithm.pdb"
 )
