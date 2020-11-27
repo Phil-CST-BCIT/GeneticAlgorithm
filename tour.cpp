@@ -44,6 +44,15 @@ Tour::Tour() :fitness_rating(0) {
     city_list.reserve(CITIES_IN_TOUR);
 }
 
+
+bool Tour::contains_city(shared_ptr<City> city) const {
+    for(auto &c : this->city_list){
+        if(*c == *city)
+            return true;
+    }
+}
+
+
 /**
  * add a city to city_list
  * @param city: a unique pointer to city
@@ -56,11 +65,8 @@ bool Tour::add_city(const shared_ptr<City> city) {
 
     int size = this->get_list().size();
 
-    for(auto &c : this->city_list){
-        if(*c == *city) {
-            return false;
-        }
-    }
+    if(this->contains_city(city))
+        return false;
 
     this->city_list.push_back(city);
 
@@ -70,6 +76,10 @@ bool Tour::add_city(const shared_ptr<City> city) {
         return false;
 }
 
+/**
+ * calculates the distance between cities as they are listed in a tour
+ * @return the sum of distances
+ */
 double Tour::get_tour_distance() {
     if(this->get_list().empty())
         return 0;
@@ -79,6 +89,7 @@ double Tour::get_tour_distance() {
     }
 
     cout << fitness_rating << endl;
+
     return this->fitness_rating;
 }
 

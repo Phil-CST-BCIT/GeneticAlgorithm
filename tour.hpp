@@ -35,6 +35,8 @@ public:
 
     vector<shared_ptr<City>> get_list() const { return city_list; }
 
+    bool contains_city(shared_ptr<City>) const;
+
     bool add_city(const shared_ptr<City> city);
 
 
