@@ -24,6 +24,8 @@ private:
 
     vector<shared_ptr<City>> city_list;
 
+    double distance;
+
     double fitness_rating;
 
 public:
@@ -31,18 +33,19 @@ public:
 
     Tour();
 
-    double get_rating() const { return fitness_rating; }
-
     vector<shared_ptr<City>> get_list() const { return city_list; }
+
+    double get_distance() const {return distance;}
+
+    double get_rating() const { return fitness_rating; }
 
     bool contains_city(shared_ptr<City>) const;
 
     bool add_city(const shared_ptr<City> city);
 
+    double calc_tour_distance();
 
-//    friend double get_distance_between_cities(const shared_ptr<City>&, const shared_ptr<City>&);
-
-    double get_tour_distance();
+    double determine_fitness();
 };
 
 #endif //GENETICALGORITHM_TOUR_HPP

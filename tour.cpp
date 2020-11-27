@@ -21,37 +21,33 @@ ostream& operator<<(ostream& os, const Tour& rhs){
     for(auto &city_ptr : rhs.city_list)
         os << *city_ptr << endl;
 
-    os << "Fitness rating of the tour: " << rhs.get_rating() << endl;
+    os << "Distance of the tour: " << rhs.get_distance() << "\n"
+    << "Fitness rating of the tour: " << rhs.get_rating() << endl;
 
     return os;
 }
-
-///**
-// * a helper method that gets the distance between two cities.
-// * @param c1: city
-// * @param c2: city
-// * @return: distance
-// */
-//double get_distance_between_cities(const shared_ptr<City> &c1, const shared_ptr<City> &c2) {
-//    return *c1 + *c2;
-//}
 
 /**
  * default constructor
  * instantiates a Tour with 32 unique cities.
  */
-Tour::Tour() :fitness_rating(0) {
+Tour::Tour() : distance(0), fitness_rating(0) {
     city_list.reserve(CITIES_IN_TOUR);
 }
 
-
+/**
+ * checks if city already exists in the city_list
+ * @param city: a pointer to a city
+ * @return true if the city already exists
+ */
 bool Tour::contains_city(shared_ptr<City> city) const {
     for(auto &c : this->city_list){
         if(*c == *city)
             return true;
     }
-}
 
+    return false;
+}
 
 /**
  * add a city to city_list
@@ -80,16 +76,28 @@ bool Tour::add_city(const shared_ptr<City> city) {
  * calculates the distance between cities as they are listed in a tour
  * @return the sum of distances
  */
-double Tour::get_tour_distance() {
+double Tour::calc_tour_distance() {
     if(this->get_list().empty())
         return 0;
 
     for(int i = 0; i < this->get_list().size() && i + 1 < this->get_list().size(); ++i){
-        this->fitness_rating += *(this->city_list.at(i)) + *(this->city_list.at(i+1));
+        this->distance += *(this->city_list.at(i)) + *(this->city_list.at(i+1));
     }
 
-    cout << fitness_rating << endl;
+    return this->distance;
+}
 
-    return this->fitness_rating;
+/**
+ * calculates the fitness of a tour
+ * @return: the fitness rating of the calling Tour object
+ */
+double Tour::determine_fitness() {
+
+    const double scalar = 37;
+
+    if(distance != 0)
+        fitness_rating = 1 / distance * scalar;
+
+    return fitness_rating;
 }
 

@@ -1,0 +1,12 @@
+//
+// Created by Phil Teng on 2020-11-27.
+//
+
+#ifndef GENETICALGORITHM_POPULATION_HPP
+#define GENETICALGORITHM_POPULATION_HPP
+class Population{
+
+};
+
+
+#endif //GENETICALGORITHM_POPULATION_HPP

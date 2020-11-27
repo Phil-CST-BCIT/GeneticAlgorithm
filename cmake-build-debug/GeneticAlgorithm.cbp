@@ -95,6 +95,18 @@
 		<Unit filename="/Users/phil/CLionProjects/GeneticAlgorithm/main.cpp">
 			<Option target="GeneticAlgorithm"/>
 		</Unit>
+		<Unit filename="/Users/phil/CLionProjects/GeneticAlgorithm/master_list.cpp">
+			<Option target="GeneticAlgorithm"/>
+		</Unit>
+		<Unit filename="/Users/phil/CLionProjects/GeneticAlgorithm/master_list.hpp">
+			<Option target="GeneticAlgorithm"/>
+		</Unit>
+		<Unit filename="/Users/phil/CLionProjects/GeneticAlgorithm/population.cpp">
+			<Option target="GeneticAlgorithm"/>
+		</Unit>
+		<Unit filename="/Users/phil/CLionProjects/GeneticAlgorithm/population.hpp">
+			<Option target="GeneticAlgorithm"/>
+		</Unit>
 		<Unit filename="/Users/phil/CLionProjects/GeneticAlgorithm/tour.cpp">
 			<Option target="GeneticAlgorithm"/>
 		</Unit>
