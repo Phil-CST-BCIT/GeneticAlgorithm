@@ -5,6 +5,7 @@
 #ifndef GENETICALGORITHM_TOUR_HPP
 #define GENETICALGORITHM_TOUR_HPP
 #include <vector>
+#include <memory>
 #include "city.hpp"
 using namespace std;
 
@@ -15,20 +16,23 @@ using namespace std;
  * @param fitness_rating: the summation of distance between an origin and a destination city
  */
 class Tour{
+    friend ostream& operator<<(ostream&, const Tour&);
 private:
-    vector<City> city_list;
-    double fitness_rating;
-public:
-    Tour();
 
-    Tour(vector<City>&);
+    vector<unique_ptr<City>> city_list;
+
+    double fitness_rating;
+
+public:
+    const int CITIES_IN_TOUR = 32;
+
+    Tour();
 
     double get_rating() const { return fitness_rating; }
 
-    vector<City> get_list() { return city_list; }
+    vector<unique_ptr<City>> get_list() { return city_list; }
 
-//    void add_city(City);
-    
+    bool add_city(unique_ptr<City> city);
 };
 
 #endif //GENETICALGORITHM_TOUR_HPP
