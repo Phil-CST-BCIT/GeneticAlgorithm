@@ -60,8 +60,13 @@ City::City(string name, double x, double y) :name(name) {
  */
 City::City(string name) :name(name) {
 
-    default_random_engine generator(time(nullptr));
-    uniform_real_distribution<double> distribution(0, MAX_DISTANCE);
+    random_device rd;
+    mt19937 generator(rd());
+    uniform_real_distribution<> distribution (0, MAX_DISTANCE);
+
+//
+//    default_random_engine generator(time(0));
+//    uniform_real_distribution<double> distribution(0, MAX_DISTANCE);
 
     this->x = distribution(generator);
     this->y = distribution(generator);

@@ -29,7 +29,7 @@ private:
     double fitness_rating;
 
 public:
-    const int CITIES_IN_TOUR = 32;
+    static const int CITIES_IN_TOUR = 32;
 
     Tour();
 

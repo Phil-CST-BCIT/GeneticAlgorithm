@@ -4,9 +4,9 @@
 
 #ifndef GENETICALGORITHM_POPULATION_HPP
 #define GENETICALGORITHM_POPULATION_HPP
-class Population{
-
-};
+//class Population{
+//
+//};
 
 
 #endif //GENETICALGORITHM_POPULATION_HPP

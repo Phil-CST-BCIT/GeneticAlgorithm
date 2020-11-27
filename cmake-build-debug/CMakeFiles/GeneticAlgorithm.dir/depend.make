@@ -9,6 +9,11 @@ CMakeFiles/GeneticAlgorithm.dir/city.cpp.o: ../city.hpp
 
 CMakeFiles/GeneticAlgorithm.dir/main.cpp.o: ../main.cpp
 
+CMakeFiles/GeneticAlgorithm.dir/master_list.cpp.o: ../city.hpp
+CMakeFiles/GeneticAlgorithm.dir/master_list.cpp.o: ../master_list.cpp
+CMakeFiles/GeneticAlgorithm.dir/master_list.cpp.o: ../master_list.hpp
+CMakeFiles/GeneticAlgorithm.dir/master_list.cpp.o: ../tour.hpp
+
 CMakeFiles/GeneticAlgorithm.dir/population.cpp.o: ../population.cpp
 CMakeFiles/GeneticAlgorithm.dir/population.cpp.o: ../population.hpp
 
@@ -18,6 +23,7 @@ CMakeFiles/GeneticAlgorithm.dir/tour.cpp.o: ../tour.hpp
 
 CMakeFiles/GeneticAlgorithm.dir/unit_test.cpp.o: ../catch_amalgamated.hpp
 CMakeFiles/GeneticAlgorithm.dir/unit_test.cpp.o: ../city.hpp
+CMakeFiles/GeneticAlgorithm.dir/unit_test.cpp.o: ../master_list.hpp
 CMakeFiles/GeneticAlgorithm.dir/unit_test.cpp.o: ../tour.hpp
 CMakeFiles/GeneticAlgorithm.dir/unit_test.cpp.o: ../unit_test.cpp
 
