@@ -19,7 +19,7 @@ class Tour{
     friend ostream& operator<<(ostream&, const Tour&);
 private:
 
-    vector<unique_ptr<City>> city_list;
+    vector<shared_ptr<City>> city_list;
 
     double fitness_rating;
 
@@ -30,9 +30,9 @@ public:
 
     double get_rating() const { return fitness_rating; }
 
-    vector<unique_ptr<City>> get_list() { return city_list; }
+    vector<shared_ptr<City>> get_list() const { return city_list; }
 
-    bool add_city(unique_ptr<City> city);
+    bool add_city(const shared_ptr<City> city);
 };
 
 #endif //GENETICALGORITHM_TOUR_HPP
