@@ -24,5 +24,9 @@ public:
 
     vector<shared_ptr<Tour>> get_population() const {return population;}
 
+    void create_cities();
+
+
+
 };
 #endif //GENETICALGORITHM_POPULATION_HPP

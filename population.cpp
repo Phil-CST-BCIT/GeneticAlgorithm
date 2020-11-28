@@ -9,18 +9,25 @@ using namespace std;
 
 /**
  * default constructor for Population class
- *
  * On each instantiation, the constructor reserves 32 memory units for the underlying vector field
- * population. In the outer for loop, it instantiates 32 shared pointers to Tour, and then
+ * population.
+ */
+Population::Population() {
+    population.reserve(POPULATION_SIZE);
+}
+
+
+/**
+ * creates different ordering of cities for each tour in a population.
+ *
+ * In the outer for loop, it instantiates 32 shared pointers to Tour, and then
  * the constructor uses random generator and std::shuffle algorithm to shuffle
  * the master list in order to change the ordering of cities in the master list.
  *
  * In the inner for loop, the constructor instantiates
  * 32 City pointers and adds the pointers to a tour.
  */
-Population::Population() {
-
-    population.reserve(POPULATION_SIZE);
+void Population::create_cities() {
 
     for(int i = 0; i < POPULATION_SIZE; ++i) {
 
@@ -38,12 +45,12 @@ Population::Population() {
             t->add_city(c);
         }
 
-        t->set_distance();
-        t->set_fitness();
+//        t->set_distance();
+//        t->set_fitness();
 
 //        cout << *t << endl;
 
         population.push_back(t);
     }
-
 }
+
