@@ -39,6 +39,14 @@ public:
 
     double get_rating() const { return fitness_rating; }
 
+    void set_distance() {
+        this->distance = this->calc_tour_distance();
+    }
+
+    void set_fitness() {
+        this->fitness_rating = this->determine_fitness();
+    }
+
     bool contains_city(shared_ptr<City>) const;
 
     bool add_city(const shared_ptr<City> city);

@@ -18,8 +18,8 @@ using namespace std;
  * @return os
  */
 ostream& operator<<(ostream& os, const Tour& rhs){
-    for(auto &city_ptr : rhs.city_list)
-        os << *city_ptr << endl;
+//    for(auto &city_ptr : rhs.city_list)
+//        os << *city_ptr << endl;
 
     os << "Distance of the tour: " << rhs.get_distance() << "\n"
     << "Fitness rating of the tour: " << rhs.get_rating() << endl;
@@ -80,11 +80,12 @@ double Tour::calc_tour_distance() {
     if(this->get_list().empty())
         return 0;
 
+    double d {};
     for(int i = 0; i < this->get_list().size() && i + 1 < this->get_list().size(); ++i){
-        this->distance += *(this->city_list.at(i)) + *(this->city_list.at(i+1));
+        d += *(this->city_list.at(i)) + *(this->city_list.at(i+1));
     }
 
-    return this->distance;
+    return d;
 }
 
 /**
@@ -93,11 +94,11 @@ double Tour::calc_tour_distance() {
  */
 double Tour::determine_fitness() {
 
-    const double scalar = 37;
-
+    const double scalar = 11111117;
+    double fitness {};
     if(distance != 0)
-        fitness_rating = 1 / distance * scalar;
+        fitness = 1 / distance * scalar;
 
-    return fitness_rating;
+    return fitness;
 }
 

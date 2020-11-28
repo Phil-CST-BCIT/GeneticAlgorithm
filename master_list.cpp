@@ -12,7 +12,7 @@ MasterList::MasterList() {
     master_list.reserve(Tour::CITIES_IN_TOUR);
 
     for(int i = 0; i < Tour::CITIES_IN_TOUR; ++i) {
-        string name = "City_ID" + to_string(i);
+        string name = "C_" + to_string(i);
         const City c {name};
         master_list.push_back(c);
     }

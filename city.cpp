@@ -4,8 +4,6 @@
 
 #include <iostream>
 #include <random>
-#include <ctime>
-
 #include "city.hpp"
 
 using namespace std;
