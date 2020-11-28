@@ -22,6 +22,8 @@ public:
 
     static const int ITERATIONS = 32;
 
+    static const int PARENT_POOL_SIZE = 3;
+
     Population();
 
     vector<shared_ptr<Tour>> get_population() const {return population;}
