@@ -20,6 +20,8 @@ private:
 public:
     static const int POPULATION_SIZE = 32;
 
+    static const int ITERATIONS = 32;
+
     Population();
 
     vector<shared_ptr<Tour>> get_population() const {return population;}

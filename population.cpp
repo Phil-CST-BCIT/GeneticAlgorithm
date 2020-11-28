@@ -8,7 +8,7 @@
 using namespace std;
 
 /**
- * default constructor for Population class
+ * default constructor of Population class
  * On each instantiation, the constructor reserves 32 memory units for the underlying vector field
  * population.
  */
@@ -109,7 +109,7 @@ void Population::genetic_process() {
 
     int i {};
 
-    while( i < 32) {
+    while( i < ITERATIONS) {
        if(move_elite(shortest))
            cout << "shortest = " << shortest << endl;
 
