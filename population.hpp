@@ -26,6 +26,8 @@ public:
 
     void create_cities();
 
+    void init_fitness();
+
 
 
 };

@@ -44,13 +44,19 @@ void Population::create_cities() {
             shared_ptr<City> c = make_shared<City>(MasterList::get_instance().get_value().at(j));
             t->add_city(c);
         }
-
-//        t->set_distance();
-//        t->set_fitness();
-
-//        cout << *t << endl;
-
         population.push_back(t);
     }
+}
+
+/**
+ * sets the initial fitness for each tour in the population.
+ */
+void Population::init_fitness() {
+
+    for(int i = 0; i < POPULATION_SIZE; ++i){
+        this->get_population().at(i)->set_distance();
+        this->get_population().at(i)->set_fitness();
+    }
+
 }
 
