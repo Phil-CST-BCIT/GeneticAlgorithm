@@ -79,6 +79,23 @@ int Population::find_shortest() {
 
 bool Population::move_elite(int index) {
 
+    if(index > POPULATION_SIZE - 1)
+        return false;
+
+    double elite_fitness {this->get_population().at(index)->get_rating()};
+
+    shared_ptr<Tour> elite = this->get_population().at(index);
+
+//    this->population.at(index) = this->get_population().at(0);
+//
+//    this->get_population().at(0) = elite;
+
+    std::swap(this->population.at(0), this->population.at(index));
+
+    if((elite_fitness - this->get_population().at(0)->get_rating()) < 0.001) {
+        return true;
+    } else
+        return false;
 }
 
 void Population::genetic_process() {
@@ -87,7 +104,6 @@ void Population::genetic_process() {
     int i {};
     while( i < 1000) {
         move_elite(shortest);
+        ++i;
     }
-
-
 }
