@@ -94,11 +94,26 @@ double Tour::calc_tour_distance() {
  */
 double Tour::determine_fitness() {
 
-    const double scalar = 11111117;
+    const double scalar = 37;
     double fitness {};
     if(distance != 0)
-        fitness = 1 / distance * scalar;
+        fitness = distance / scalar;
 
     return fitness;
+}
+
+/**
+ * overload less than operator
+ * @param rhs
+ * @return true if the tour rating of the calling Tour is less than the tour rating of the rhs
+ */
+bool Tour::operator<(const Tour &rhs) const {
+    if(this->get_distance() == 0 && rhs.get_distance() == 0)
+        return false;
+
+    if(this->get_rating() < rhs.get_rating())
+        return true;
+    else
+        return false;
 }
 

@@ -28,6 +28,12 @@ public:
 
     void init_fitness();
 
+    int find_shortest();
+
+    bool move_elite(int);
+
+    void genetic_process();
+
 
 
 };

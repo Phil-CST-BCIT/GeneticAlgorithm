@@ -16,7 +16,6 @@ Population::Population() {
     population.reserve(POPULATION_SIZE);
 }
 
-
 /**
  * creates different ordering of cities for each tour in a population.
  *
@@ -54,9 +53,41 @@ void Population::create_cities() {
 void Population::init_fitness() {
 
     for(int i = 0; i < POPULATION_SIZE; ++i){
-        this->get_population().at(i)->set_distance();
-        this->get_population().at(i)->set_fitness();
+        this->get_population().at(i)->eval_distance();
+        this->get_population().at(i)->eval_fitness();
     }
+}
+
+/**
+ * finds the index of the shortest tour in a population
+ * @return the index to the tour in vector<shared_ptr<Tour>> population
+ */
+int Population::find_shortest() {
+    int shortest {};
+
+    shared_ptr<Tour> rhs = this->get_population().at(0);
+
+    for(int i = 0; i < POPULATION_SIZE; ++i) {
+        if(*(this->get_population().at(i)) < *rhs){
+            shortest = i;
+            rhs = this->get_population().at(i);
+        }
+    }
+
+    return shortest;
+}
+
+bool Population::move_elite(int index) {
 
 }
 
+void Population::genetic_process() {
+
+    int shortest {find_shortest()};
+    int i {};
+    while( i < 1000) {
+        move_elite(shortest);
+    }
+
+
+}

@@ -39,11 +39,11 @@ public:
 
     double get_rating() const { return fitness_rating; }
 
-    void set_distance() {
+    void eval_distance() {
         this->distance = this->calc_tour_distance();
     }
 
-    void set_fitness() {
+    void eval_fitness() {
         this->fitness_rating = this->determine_fitness();
     }
 
@@ -54,6 +54,8 @@ public:
     double calc_tour_distance();
 
     double determine_fitness();
+
+    bool operator<(const Tour&) const;
 };
 
 #endif //GENETICALGORITHM_TOUR_HPP
