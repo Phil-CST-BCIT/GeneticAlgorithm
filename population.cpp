@@ -76,7 +76,11 @@ int Population::find_shortest() {
 
     return shortest;
 }
-
+/**
+ * swap the elite tour with the first tour in the vector
+ * @param index: the index where the elite tour is located at the vector
+ * @return true if successfully swapped the elite with the first tour
+ */
 bool Population::move_elite(int index) {
 
     if(index > POPULATION_SIZE - 1)
@@ -94,14 +98,23 @@ bool Population::move_elite(int index) {
         return false;
 }
 
+/*
+ * performs the genetic algorithm
+ */
 void Population::genetic_process() {
 
     int shortest {find_shortest()};
+
     cout << "shortest = " << shortest << endl;
+
     int i {};
+
     while( i < 32) {
        if(move_elite(shortest))
            cout << "shortest = " << shortest << endl;
+
+//        perform crossover and mutation of tours
+
         ++i;
         shortest = find_shortest();
     }
