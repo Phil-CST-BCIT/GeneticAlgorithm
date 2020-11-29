@@ -37,7 +37,7 @@ public:
 
     bool move_elite(int);
 
-    vector<shared_ptr<Tour>> pick_tours() const;
+    vector<shared_ptr<Tour>> pick_tours();
 
     shared_ptr<Tour> crossover();
 

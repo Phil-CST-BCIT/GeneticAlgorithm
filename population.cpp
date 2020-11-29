@@ -69,7 +69,7 @@ int find_shortest(vector<shared_ptr<Tour>> p) {
 
     shared_ptr<Tour> rhs = p.at(0);
 
-    for(int i = 0; i < Population::POPULATION_SIZE; ++i) {
+    for(int i = 0; i < p.size(); ++i) {
         if(*(p.at(i)) < *rhs){
             shortest = i;
             rhs = p.at(i);
@@ -100,7 +100,7 @@ bool Population::move_elite(int index) {
         return false;
 }
 
-vector<shared_ptr<Tour>> Population::pick_tours() const {
+vector<shared_ptr<Tour>> Population::pick_tours()  {
     vector<shared_ptr<Tour>> random_tours {};
     random_tours.reserve(PARENT_POOL_SIZE);
 
@@ -120,9 +120,25 @@ shared_ptr<Tour> Population::crossover() {
     int s1 = find_shortest(v1);
     int s2 = find_shortest(v2);
 
+    shared_ptr<Tour> p1 = v1.at(s1);
+    shared_ptr<Tour> p2 = v2.at(s2);
 
+    int random_index = rand() % POPULATION_SIZE;
 
+    shared_ptr<Tour> child = make_shared<Tour>();
 
+    for(int j = 0; j < random_index + 1 && random_index + 1 < POPULATION_SIZE; ++j) {
+        child->add_city(p1->get_list().at(j));
+    }
+
+    for(int i = 0; i < Tour::CITIES_IN_TOUR - (random_index + 1); ++i) {
+        shared_ptr<City> c = p2->get_list().at(i);
+        if(!child->contains_city(c)) {
+            child->add_city(c);
+        }
+    }
+
+    return child;
 }
 
 /*
