@@ -14,6 +14,8 @@ using namespace std;
 
 class Population{
 
+    friend int find_shortest(vector<shared_ptr<Tour>>);
+
 private:
     vector<shared_ptr<Tour>> population;
 
@@ -32,11 +34,12 @@ public:
 
     void init_fitness();
 
-    int find_shortest();
 
     bool move_elite(int);
 
     vector<shared_ptr<Tour>> pick_tours() const;
+
+//    shared_ptr<Tour> crossover();
 
     void genetic_process();
 
