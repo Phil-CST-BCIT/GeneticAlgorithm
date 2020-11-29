@@ -43,6 +43,7 @@ void Population::create_cities() {
             shared_ptr<City> c = make_shared<City>(MasterList::get_instance().get_value().at(j));
             t->add_city(c);
         }
+
         population.push_back(t);
     }
 }
@@ -97,6 +98,19 @@ bool Population::move_elite(int index) {
     } else
         return false;
 }
+
+vector<shared_ptr<Tour>> Population::pick_tours() const {
+    vector<shared_ptr<Tour>> random_tours {};
+    random_tours.reserve(PARENT_POOL_SIZE);
+
+    for(int i = 0; i < PARENT_POOL_SIZE; ++i) {
+        int index = rand() % (POPULATION_SIZE - 1) + 1;
+        shared_ptr<Tour> t = this->get_population().at(index);
+        random_tours.push_back(t);
+    }
+    return random_tours;
+}
+
 
 /*
  * performs the genetic algorithm

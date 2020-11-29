@@ -36,6 +36,8 @@ public:
 
     bool move_elite(int);
 
+    vector<shared_ptr<Tour>> pick_tours() const;
+
     void genetic_process();
 
 
