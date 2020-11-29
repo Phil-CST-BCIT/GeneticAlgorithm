@@ -39,7 +39,7 @@ public:
 
     vector<shared_ptr<Tour>> pick_tours() const;
 
-//    shared_ptr<Tour> crossover();
+    shared_ptr<Tour> crossover();
 
     void genetic_process();
 

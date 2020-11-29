@@ -60,18 +60,19 @@ void Population::init_fitness() {
 }
 
 /**
+ * a friend function
  * finds the index of the shortest tour in a population
- * @return the index to the tour in vector<shared_ptr<Tour>> population
+ * @return the index to the tour in vector<shared_ptr<Tour>> p
  */
-int find_shortest(vector<shared_ptr<Tour>> t) {
+int find_shortest(vector<shared_ptr<Tour>> p) {
     int shortest {};
 
-    shared_ptr<Tour> rhs = t.at(0);
+    shared_ptr<Tour> rhs = p.at(0);
 
     for(int i = 0; i < Population::POPULATION_SIZE; ++i) {
-        if(*(t.at(i)) < *rhs){
+        if(*(p.at(i)) < *rhs){
             shortest = i;
-            rhs = t.at(i);
+            rhs = p.at(i);
         }
     }
 
@@ -111,14 +112,18 @@ vector<shared_ptr<Tour>> Population::pick_tours() const {
     return random_tours;
 }
 
-//shared_ptr<Tour> Population::crossover() {
-//
-//    vector<shared_ptr<Tour>> v1 = pick_tours();
-//    vector<shared_ptr<Tour>> v2 = pick_tours();
-//
-//
-//
-//}
+shared_ptr<Tour> Population::crossover() {
+
+    vector<shared_ptr<Tour>> v1 = pick_tours();
+    vector<shared_ptr<Tour>> v2 = pick_tours();
+
+    int s1 = find_shortest(v1);
+    int s2 = find_shortest(v2);
+
+
+
+
+}
 
 /*
  * performs the genetic algorithm
