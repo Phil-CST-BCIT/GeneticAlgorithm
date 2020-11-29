@@ -152,13 +152,14 @@ void Population::genetic_process() {
 
     int shortest {find_shortest(this->get_population())};
 
-    cout << "shortest = " << shortest << endl;
+//    cout << "shortest = " << shortest << endl;
 
     int i {};
 
-    while( i < 2) {
-       if(move_elite(shortest))
-           cout << "shortest = " << shortest << endl;
+    if(move_elite(shortest))
+        cout << "shortest = " << shortest << endl;
+
+    while( i < 1) {
 
 //        perform crossover and mutation of tours
 
@@ -168,16 +169,20 @@ void Population::genetic_process() {
 
         next_generations.push_back(this->population.at(shortest));
 
-        for(int i = 0; i < POPULATION_SIZE - 1; ++i) {
+        for(int k = 0; k < POPULATION_SIZE - 1; ++k) {
             shared_ptr<Tour> child = crossover();
             child->eval_distance();
             child->eval_fitness();
             next_generations.push_back(child);
-            cout << *child << endl;
+        }
+
+        for(int j = 0; j < POPULATION_SIZE; ++j) {
+            this->population.at(j) = next_generations.at(j);
         }
 
         ++i;
 
         shortest = find_shortest(this->get_population());
+        move_elite(shortest);
     }
 }
