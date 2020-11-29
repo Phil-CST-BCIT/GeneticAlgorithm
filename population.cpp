@@ -112,6 +112,10 @@ vector<shared_ptr<Tour>> Population::pick_tours()  {
     return random_tours;
 }
 
+/**
+ * creates a new tour child from a pair of elite tours
+ * @return child: shared pointer to a tour
+ */
 shared_ptr<Tour> Population::crossover() {
 
     vector<shared_ptr<Tour>> v1 = pick_tours();
