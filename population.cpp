@@ -135,54 +135,74 @@ shared_ptr<Tour> Population::crossover() {
         child->add_city(p1->get_list().at(j));
     }
 
-    for(int i = 0; i < Tour::CITIES_IN_TOUR - (random_index + 1); ++i) {
+    int child_size = child->get_list().size();
+
+    for(int i = 0; i < Tour::CITIES_IN_TOUR && child_size != Tour::CITIES_IN_TOUR; ++i) {
         shared_ptr<City> c = p2->get_list().at(i);
         if(!child->contains_city(c)) {
             child->add_city(c);
         }
+        child_size = child->get_list().size();
     }
 
     return child;
 }
 
-/*
+/**
+ * a helper method performs the crossover method
+ * @param shortest: the index to the shortest tour in current population
+ */
+void Population::cross(int shortest) {
+
+    vector<shared_ptr<Tour>> next_generations {};
+
+    next_generations.reserve(POPULATION_SIZE );
+
+    next_generations.push_back(this->population.at(shortest));
+
+    for(int k = 0; k < POPULATION_SIZE - 1; ++k) {
+        shared_ptr<Tour> child = crossover();
+        child->eval_distance();
+        child->eval_fitness();
+        next_generations.push_back(child);
+    }
+
+    swap(this->population, next_generations);
+}
+
+
+/**
  * performs the genetic algorithm
+ *
+ * On start, the method finds the index of the initial shortest tour and stores the index of the
+ * shortest tour to int variable 'shortest'.
+ *
+ * After that, it moves the shortest tour to the front of the population vector.
+ * The method then performs the while loop in order to generate even shorter child tour.
+ *
+ * When counter i reaches POPULATION_SIZE or predefined threshold, it terminates the
+ * while loop and reports the final result.
+ *
  */
 void Population::genetic_process() {
 
     int shortest {find_shortest(this->get_population())};
 
-//    cout << "shortest = " << shortest << endl;
-
     int i {};
 
     if(move_elite(shortest))
-        cout << "shortest = " << shortest << endl;
+        cout << "init shortest = " << shortest << endl;
 
-    while( i < 1) {
+    while( i < POPULATION_SIZE) {
 
-//        perform crossover and mutation of tours
+        cross(shortest);
 
-        vector<shared_ptr<Tour>> next_generations {};
+        shortest = find_shortest(this->get_population());
 
-        next_generations.reserve(POPULATION_SIZE);
-
-        next_generations.push_back(this->population.at(shortest));
-
-        for(int k = 0; k < POPULATION_SIZE - 1; ++k) {
-            shared_ptr<Tour> child = crossover();
-            child->eval_distance();
-            child->eval_fitness();
-            next_generations.push_back(child);
-        }
-
-        for(int j = 0; j < POPULATION_SIZE; ++j) {
-            this->population.at(j) = next_generations.at(j);
-        }
+        move_elite(shortest);
 
         ++i;
 
-        shortest = find_shortest(this->get_population());
-        move_elite(shortest);
+        cout << "Generation" << i << "shortest = " << shortest << endl;
     }
 }

@@ -41,6 +41,8 @@ public:
 
     shared_ptr<Tour> crossover();
 
+    void cross(int);
+
     void genetic_process();
 
 
