@@ -1,5 +1,5 @@
 #include "population.hpp"
-
+#include <iostream>
 using namespace std;
 
 /**
@@ -14,6 +14,10 @@ int main() {
     tester.init_fitness();
 
     tester.genetic_process();
+
+    cout << "================================================================== " << endl;
+    cout << "The improvement of the travelling tour distance has been achieved. " << endl;
+    cout << "The final tour is: " << *(tester.get_population().at(0)) << endl;
 
     return 0;
 }
