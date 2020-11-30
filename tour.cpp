@@ -27,6 +27,22 @@ ostream& operator<<(ostream& os, const Tour& rhs){
     return os;
 }
 
+bool Tour::tour_mutate(int i, int j) {
+    if(i == j || i > CITIES_IN_TOUR || j > CITIES_IN_TOUR)
+        return false;
+
+    string name = this->get_list().at(i)->get_name();
+
+    std::swap(this->city_list.at(i), this->city_list.at(j));
+
+    if(name == this->get_list().at(j)->get_name()) {
+        return true;
+    } else {
+        return false;
+    }
+
+}
+
 /**
  * default constructor
  * instantiates a Tour with 32 unique cities.

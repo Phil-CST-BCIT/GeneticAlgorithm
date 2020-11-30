@@ -187,6 +187,25 @@ bool roll_dice() {
         return false;
 }
 
+void Population::mutate() {
+
+
+    for(int j = 0; j < POPULATION_SIZE; ++j) {
+        if (roll_dice()) {
+            for(int i = 0; i < Tour::CITIES_IN_TOUR; ++i) {
+                if (roll_dice()){
+                    if(i + 1 < Tour::CITIES_IN_TOUR) {
+                    } else {
+                    }
+                }
+            }
+            cout << "==========mutate===========" << endl;
+            cout << "At j = " << j << *this->population.at(j) << endl;
+            cout << "==========******===========" << endl;
+        }
+    }
+}
+
 
 /**
  * performs the genetic algorithm
@@ -213,6 +232,8 @@ void Population::genetic_process() {
     while( i < POPULATION_SIZE) {
 
         cross(shortest);
+
+//        mutate();
 
         shortest = find_shortest(this->get_population());
 

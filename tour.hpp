@@ -56,6 +56,8 @@ public:
     double determine_fitness();
 
     bool operator<(const Tour&) const;
+
+    bool tour_mutate(int, int);
 };
 
 #endif //GENETICALGORITHM_TOUR_HPP

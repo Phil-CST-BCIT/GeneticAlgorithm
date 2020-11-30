@@ -33,7 +33,6 @@ public:
 
     static const int DICE_RANGE = 100;
 
-
     Population();
 
     vector<shared_ptr<Tour>> get_population() const {return population;}
@@ -41,7 +40,6 @@ public:
     void create_cities();
 
     void init_fitness();
-
 
     bool move_elite(int);
 
@@ -51,8 +49,7 @@ public:
 
     void cross(int);
 
-
-//    void mutate();
+    void mutate();
 
     void genetic_process();
 
