@@ -100,6 +100,10 @@ bool Population::move_elite(int index) {
         return false;
 }
 
+/**
+ * randomly picks PARENT_POOL_SIZE of tours from population
+ * @return a vector of shared pointer to Tour.
+ */
 vector<shared_ptr<Tour>> Population::pick_tours()  {
     vector<shared_ptr<Tour>> random_tours {};
     random_tours.reserve(PARENT_POOL_SIZE);
@@ -168,6 +172,19 @@ void Population::cross(int shortest) {
     }
 
     swap(this->population, next_generations);
+}
+
+/**
+ * a friend helper function for rolling a dice
+ * @return true if the dice result is less than MUTATION_RATE
+ */
+bool roll_dice() {
+    int rate = rand() % Population::DICE_RANGE + 1;
+
+    if(rate < Population::MUTATION_RATE)
+        return true;
+    else
+        return false;
 }
 
 

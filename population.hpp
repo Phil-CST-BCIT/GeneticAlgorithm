@@ -16,6 +16,9 @@ class Population{
 
     friend int find_shortest(vector<shared_ptr<Tour>>);
 
+    friend bool roll_dice();
+
+
 private:
     vector<shared_ptr<Tour>> population;
 
@@ -25,6 +28,11 @@ public:
     static const int ITERATIONS = 32;
 
     static const int PARENT_POOL_SIZE = 3;
+
+    static const int MUTATION_RATE = 15;
+
+    static const int DICE_RANGE = 100;
+
 
     Population();
 
@@ -42,6 +50,9 @@ public:
     shared_ptr<Tour> crossover();
 
     void cross(int);
+
+
+//    void mutate();
 
     void genetic_process();
 
