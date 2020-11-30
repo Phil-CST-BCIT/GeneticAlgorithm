@@ -25,7 +25,7 @@ private:
 public:
     static const int POPULATION_SIZE = 32;
 
-    static const int ITERATIONS = 32;
+    static const int ITERATIONS = 1000;
 
     static const int PARENT_POOL_SIZE = 3;
 

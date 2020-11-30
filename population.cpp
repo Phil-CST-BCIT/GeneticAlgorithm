@@ -179,7 +179,11 @@ void Population::cross(int shortest) {
  * @return true if the dice result is less than MUTATION_RATE
  */
 bool roll_dice() {
-    int rate = rand() % Population::DICE_RANGE + 1;
+
+    random_device rd;
+    mt19937 gen(rd());
+    uniform_int_distribution<> distribution(1, Population::DICE_RANGE);
+    int rate = distribution(gen);
 
     if(rate < Population::MUTATION_RATE)
         return true;
@@ -187,21 +191,30 @@ bool roll_dice() {
         return false;
 }
 
+/**
+ * mutates a pair of cities in each tour if rolling a dice returns true.
+ */
 void Population::mutate() {
 
+    for(int i = 0; i < POPULATION_SIZE; ++i) {
 
-    for(int j = 0; j < POPULATION_SIZE; ++j) {
         if (roll_dice()) {
-            for(int i = 0; i < Tour::CITIES_IN_TOUR; ++i) {
+
+            for(int j = 0; j < Tour::CITIES_IN_TOUR; ++j) {
+
                 if (roll_dice()){
-                    if(i + 1 < Tour::CITIES_IN_TOUR) {
+
+                    if(j + 1 < Tour::CITIES_IN_TOUR) {
+
+                        this->population.at(i)->tour_mutate(j, j+1);
+
                     } else {
+
+                        this->population.at(i)->tour_mutate(j, 0);
+
                     }
                 }
             }
-            cout << "==========mutate===========" << endl;
-            cout << "At j = " << j << *this->population.at(j) << endl;
-            cout << "==========******===========" << endl;
         }
     }
 }
@@ -226,14 +239,15 @@ void Population::genetic_process() {
 
     int i {};
 
-    if(move_elite(shortest))
-        cout << "init shortest = " << shortest << endl;
+    move_elite(shortest);
 
-    while( i < POPULATION_SIZE) {
+    while( i < ITERATIONS) {
+
+        shared_ptr<Tour> previous = this->get_population().at(0);
 
         cross(shortest);
 
-//        mutate();
+        mutate();
 
         shortest = find_shortest(this->get_population());
 
@@ -241,6 +255,14 @@ void Population::genetic_process() {
 
         ++i;
 
-        cout << "Generation" << i << "shortest = " << shortest << endl;
+        shared_ptr<Tour> current = this->get_population().at(0);
+
+        if(current->get_rating() < previous->get_rating()) {
+            cout << "Improvement achieved" << endl;
+        } {
+            cout << "Improvement not achieved" << endl;
+        }
+
+        cout << "Generation " << i << " with shortest = " << *current << endl;
     }
 }
