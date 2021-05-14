@@ -1,7 +1,6 @@
 //
 // Created by Phil Teng on 2020-11-19.
 //
-
 #ifndef GENETICALGORITHM_CITY_HPP
 #define GENETICALGORITHM_CITY_HPP
 
